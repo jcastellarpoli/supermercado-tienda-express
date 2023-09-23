@@ -3,14 +3,16 @@ import { IndexComponent } from './components/index/index.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './components/menu/menu.component';
 
-const routes: Routes = [
+export const globalRoutes: Routes = [
   {
     path: '',
-    children: [
-      { path: 'index', component: IndexComponent },
-      { path: 'menu', component: MenuComponent },
-      { path: '**', component: IndexComponent }
-    ]
+    component: IndexComponent
+    // loadChildren: () => import('./global.module').then(m => m.GlobalModule)
+    // children: [
+    //   { path: 'index', component: IndexComponent },
+    //   { path: 'menu', component: MenuComponent },
+    //   { path: '**', component: IndexComponent }
+    // ]
   }
 ]
 
@@ -18,7 +20,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forChild(routes)
+    RouterModule.forChild(globalRoutes)
   ]
 })
 export class GlobalRoutingModule { }
