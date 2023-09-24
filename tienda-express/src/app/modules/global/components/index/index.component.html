@@ -1,1 +1,97 @@
-<p>index works!</p>
+<div class="container">
+
+<div class="mb-5">
+    <h2><b>Descripcion de la tienda</b></h2>
+
+    <p class="text-secondary">Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae </p>
+    <button type="button" class="btn btn-outline-secondary">Ver todos los productos</button>
+
+</div>
+
+    
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner tamanio-slider">
+      <div class="carousel-item active">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2><b>Descripcion del producto</b></h2>
+
+                <p class="text-secondary">Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae </p>
+
+                <!--<button type="button" class="btn btn-outline-secondary">Ver todos los productos</button>-->
+            </div>
+            <div class="col-sm-6">
+                <img src="assets/images/slider/slider1.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2><b>Descripcion del producto</b></h2>
+    
+                    <p class="text-secondary">Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae </p>
+    
+                    <!--<button type="button" class="btn btn-outline-secondary">Ver todos los productos</button>-->
+                </div>
+                <div class="col-sm-6">
+                    <img src="assets/images/slider/slider2.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2><b>Descripcion del producto</b></h2>
+    
+                    <p class="text-secondary">Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae </p>
+    
+                    <!--<button type="button" class="btn btn-outline-secondary">Ver todos los productos</button>-->
+                </div>
+                <div class="col-sm-6">
+                    <img src="assets/images/slider/slider3.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</div>
+
+</div>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-3">
+            <h2><b>Productos</b></h2>
+        </div>
+        <div class="col-md-2 col-lg-2 ms-auto">
+            <a href="#">Ver todos los productos</a>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <ul>
+                <li *ngFor="let product of products">{{product.id}} - {{product.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

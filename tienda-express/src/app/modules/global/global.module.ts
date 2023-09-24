@@ -6,15 +6,19 @@ import { GlobalRoutingModule } from './global-routing.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     GlobalRoutingModule,
+    RouterModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule
