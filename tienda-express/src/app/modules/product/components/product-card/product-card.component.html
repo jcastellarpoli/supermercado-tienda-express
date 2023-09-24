@@ -1,6 +1,6 @@
 
-<div class="card p-2" style="width: 18rem;">
-    <a href="#"><img src="assets/images/slider/slider3.png" class="card-img-top" alt="..."></a>
+<div class="card p-2" style="width: 18rem;height:400px;">
+    <a (click)="clickMethod()" class="h-100"><img src="{{product.img}}" style="cursor:pointer;" class="card-img-top h-100" alt="..."></a>
     <div class="card-body">
         <div class="d-flex justify-content-center">
             <h3 class="card-title"><b>{{product.name}}</b></h3>
@@ -10,3 +10,8 @@
         </div>
     </div>
   </div>
+
+
+  <!-- [routerLink]="[]" (click)="clickMethod()"   (click)="clickMethod()" -->
+
+  <!-- [routerLink]="['products/detail', product.id]"   routerLink="/products/detail/{{product.id}}" -->

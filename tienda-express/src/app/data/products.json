@@ -1,26 +1,51 @@
 [
     {
         "id" : 1,
-        "name" : "manzana",
+        "name" : "Manzana",
         "count" : 100,
-        "unit_price": 500
+        "unit_price": 500,
+        "img": "assets/images/products/product1.png"
     },
     {
         "id" : 2,
-        "name" : "piña",
+        "name" : "Piña",
         "count" : 200,
-        "unit_price": 1000
+        "unit_price": 1000,
+        "img": "assets/images/products/product2.png"
     },
     {
         "id" : 3,
-        "name" : "pera",
+        "name" : "Pera",
         "count" : 200,
-        "unit_price": 500
+        "unit_price": 500,
+        "img": "assets/images/products/product3.png"
     },
     {
         "id" : 4,
-        "name" : "zanahoria",
+        "name" : "Zanahoria",
         "count" : 300,
-        "unit_price": 800
+        "unit_price": 800,
+        "img": "assets/images/products/product3.png"
+    },
+    {
+        "id" : 5,
+        "name" : "Remolacha",
+        "count" : 150,
+        "unit_price": 200,
+        "img": "assets/images/products/product2.png"
+    },
+    {
+        "id" : 6,
+        "name" : "Mango",
+        "count" : 300,
+        "unit_price": 700,
+        "img": "assets/images/products/product1.png"
+    },
+    {
+        "id" : 7,
+        "name" : "Brocoli",
+        "count" : 500,
+        "unit_price": 400,
+        "img": "assets/images/products/product3.png"
     }
 ]

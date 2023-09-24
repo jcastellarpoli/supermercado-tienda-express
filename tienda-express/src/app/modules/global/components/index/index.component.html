@@ -4,7 +4,7 @@
     <h2><b>Descripcion de la tienda</b></h2>
 
     <p class="text-secondary">Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae Lorem ipsum dolor oa agrgaeae </p>
-    <button type="button" class="btn btn-outline-secondary">Ver todos los productos</button>
+    <button  [routerLink]="['/products/index']" type="button" class="btn btn-outline-secondary">Ver todos los productos</button>
 
 </div>
 
@@ -73,9 +73,7 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
 </div>
-
 </div>
 <hr/>
 <div class="container">
@@ -84,7 +82,7 @@
             <h2><b>Productos</b></h2>
         </div>
         <div class="col-sm-4 col-md-2 col-lg-2 ms-auto">
-            <a href="#">Ver todos los productos</a>
+            <a [routerLink]="['/products/index']">Ver todos los productos</a>
         </div>
     </div>
     <div class="row">

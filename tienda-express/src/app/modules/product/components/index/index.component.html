@@ -1,1 +1,10 @@
-<p>index works!</p>
+<div class="container">
+    <div class="col-sm-2 col-md-3 col-lg-3">
+        <h2><b>Listar productos</b></h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-3 mb-5" *ngFor="let product of products">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+    </div>
+</div>

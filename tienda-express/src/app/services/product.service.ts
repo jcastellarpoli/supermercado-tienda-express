@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Product } from "./interfaces/product";
+import { ProductCardComponent } from "../modules/product/components/product-card/product-card.component";
 
 // import * as fs from "fs";
 const productArray = require('src/app/data/products.json'); 
@@ -25,5 +26,22 @@ export class ProductService
     All()
     {
         return this.products;
+    }
+
+    Find(id: number)
+    {
+        let product: Product;
+
+        product = new Product();
+
+        this.products.forEach(item => {
+            
+            if(item.id == id)
+            {
+                product = item;
+            }
+        });
+
+        return product;
     }
 }

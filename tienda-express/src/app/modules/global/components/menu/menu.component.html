@@ -1,10 +1,10 @@
 <nav class="navbar navbar-dark mb-5" style="color:#fff;background-color: #66D96E;">
     <div class="container-fluid">
-            <a href="#" class="navbar-brand">Tienda Express</a>
+            <a [routerLink]="['/']" class="navbar-brand">Tienda Express</a>
 
         <div class="navbar-nav me-auto">
             <div class="nav-item">
-            <a href="#" class="nav-link" style="color:whitesmoke;">Productos</a>
+            <a [routerLink]="['products/index']" class="nav-link" style="color:whitesmoke;">Productos</a>
             </div>
         </div>
 
@@ -18,12 +18,14 @@
             </button> 
         </div>    
          
-        <div>Admin</div>
+        <div>Admin</div> 
            
     </div>
         
 </nav>
 
 <router-outlet></router-outlet>
+
+<!-- [routerLink]="['/']"  (click)="goHome()"-->
 
 <app-footer></app-footer>

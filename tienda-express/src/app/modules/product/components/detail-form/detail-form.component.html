@@ -1,0 +1,37 @@
+<div class="container">
+    <ng-template [ngIf]="productexists" [ngIfElse]="productNotExists">
+            <h2><b>Detalle producto</b></h2>
+            <div class="card p-2">
+                <div class="card-body">                    
+                    <div class="row">
+                        <div class="col-sm-8 col-md-6 col-lg-6">
+                            <img src="{{product.img}}" style="border:1px solid lightgray;" class="w-100" alt="...">
+
+                            <p class="mt-2"><b>Cantidad disponible: {{product.count}}</b></p>
+                        </div>
+
+                        <div class="col-sm-4 col-md-6 col-lg-6 ms-auto mt-5">
+                            <h3><b>{{product.name}}</b></h3>
+
+                            <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
+
+                            <p><b>${{product.unit_price}}</b></p>
+
+                            <button type="button" class="btn btn-success">
+                                <mat-icon>shopping_cart</mat-icon>
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+      </ng-template>
+      
+      <ng-template #productNotExists>
+        <div>
+          No se logro encontrar el producto
+        </div>
+      </ng-template>
+
+</div>
