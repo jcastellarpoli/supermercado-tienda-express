@@ -7,6 +7,7 @@ import { GlobalRoutingModule } from './modules/global/global-routing.module';
 import { RouteModule } from './route.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalModule } from './modules/global/global.module';
+import { ProductRoutingModule } from './modules/product/product-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GlobalModule } from './modules/global/global.module';
     BrowserModule,
     AppRoutingModule,
     GlobalRoutingModule,
+    ProductRoutingModule,
     RouteModule,
     BrowserAnimationsModule,
     GlobalModule
