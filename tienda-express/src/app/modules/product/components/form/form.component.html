@@ -1,1 +1,112 @@
-<p>form works!</p>
+
+<div class="container">
+
+    <!-- <div *ngIf="newproduct">
+        <h2><b>Crear producto</b></h2>
+
+    </div>
+    
+    <div *ngIf="!newproduct">
+        <h2><b>Editar producto</b></h2>
+    </div> -->
+
+    <ng-template [ngIf]="newproduct" [ngIfElse]="productExists">
+        <h2><b>Crear producto</b></h2>
+
+    </ng-template>
+
+    <ng-template #productExists>
+        <h2><b>Editar producto</b></h2>
+        
+    </ng-template>
+
+    <!-- <h2><b>Crear / Editar producto</b></h2> -->
+    <div class="card p-2">
+        <div class="card-body">
+
+            <div class="container-fluid">
+                <form #productForm="ngForm">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-6 col-lg-6">
+                            <img src="{{product.img}}" style="border:1px solid lightgray;" class="w-100" alt="Imagen producto">
+
+                            <input type="file" class="form-control mt-3" name="img" />
+                        </div>
+                        <div class="col-sm-4 col-md-6 col-lg-6 ms-auto mt-3">
+                            <div class="form-group">
+                                <label class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" name="name" [(ngModel)]="product.name"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Descripción:</label>
+                                <textarea class="form-control" name="description" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <hr />
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <label class="form-label">Precio:</label>
+                                    <input type="number" class="form-control" name="price" [(ngModel)]="product.unit_price"/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label class="form-label">Unidades disponibles:</label>
+                                    <input type="number" class="form-control" name="count" [(ngModel)]="product.count"/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label class="form-label">Se encuentra en promoción:</label>
+                                    <input type="checkbox" name="issale"/>
+                                </div>
+                            </div>
+                            <div class="form-group mt-5">
+
+                                <ng-template [ngIf]="newproduct" [ngIfElse]="productExists2">
+                                    <button type="button" class="btn btn-success me-2" style="width:150px;">
+                                        Crear
+                                    </button>
+                                </ng-template>
+                            
+                                <ng-template #productExists2>
+                                    <button type="button" class="btn btn-warning" style="width:150px;">
+                                        Editar
+                                    </button>
+                                </ng-template>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+
+            <!--<div class="row">
+                        <div class="col-sm-8 col-md-6 col-lg-6">
+                            <img src="{{product.img}}" style="border:1px solid lightgray;" class="w-100" alt="...">
+
+                            <p class="mt-2"><b>Cantidad disponible: {{product.count}}</b></p>
+                        </div>
+
+                        <div class="col-sm-4 col-md-6 col-lg-6 ms-auto mt-5">
+                            <h3><b>{{product.name}}</b></h3>
+
+                            <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
+
+                            <p><b>${{product.unit_price}}</b></p>
+
+                            <button type="button" class="btn btn-success">
+                                <mat-icon>shopping_cart</mat-icon>
+                                Comprar
+                            </button>
+                        </div>
+                    </div>-->
+
+        </div>
+    </div>
+
+    <ng-template [ngIf]="newproduct" [ngIfElse]="productNotExists">
+    </ng-template>
+
+    <ng-template #productNotExists>
+    </ng-template>
+
+</div>

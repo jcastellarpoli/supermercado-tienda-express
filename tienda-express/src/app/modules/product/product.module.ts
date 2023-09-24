@@ -6,6 +6,9 @@ import { FormComponent } from './components/form/form.component';
 import { DetailFormComponent } from './components/detail-form/detail-form.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -13,12 +16,14 @@ import { MatIconModule } from '@angular/material/icon';
     IndexComponent,
     ProductCardComponent,
     FormComponent,
-    DetailFormComponent
+    DetailFormComponent,
+    AdminProductsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   exports: [
     ProductCardComponent,

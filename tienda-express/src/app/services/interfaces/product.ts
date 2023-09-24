@@ -5,4 +5,9 @@ export class Product
     count!: number
     unit_price!: number
     img!: string
+
+    constructor()
+    {
+        this.id = 0;
+    }
 }

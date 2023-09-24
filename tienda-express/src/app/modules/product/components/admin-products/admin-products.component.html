@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <h2><b>Administrar productos</b></h2>
+    </div>
+
+
+
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card p-2">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-3">
+
+                    <button type="button" (click)="crearProducto()" class="btn btn-success">Adicionar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">acciones</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Precio unitario</th>
+                                <th scope="col">Está en promoción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products">
+                                <td>
+                                    <button type="button" (click)="eliminarProducto(product.id)"
+                                        class="btn btn-danger"><mat-icon>delete</mat-icon></button>
+                                    <button type="button" (click)="editarProducto(product.id)" style="color:black;"
+                                        class="btn btn-warning ms-3"><mat-icon>edit</mat-icon></button>
+                                </td>
+                                <th>{{product.id}}</th>
+                                <td>{{product.name}}</td>
+                                <td>Lorem ipsum dolor set amet</td>
+                                <td>{{product.count}}</td>
+                                <td>{{product.unit_price}}</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
