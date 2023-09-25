@@ -1,16 +1,16 @@
 <nav class="navbar navbar-dark mb-5" style="color:#fff;background-color: #66D96E;">
     <div class="container-fluid">
-            <a [routerLink]="['/']" class="navbar-brand">Tienda Express</a>
+            <a [routerLink]="['/']" class="navbar-brand menu-button"><i>Tienda Express</i></a>
 
         <div class="navbar-nav me-3">
             <div class="nav-item">
-                <a [routerLink]="['products/index']" class="nav-link" style="color:whitesmoke;">Productos</a>
+                <a [routerLink]="['products/index']" class="nav-link menu-button" style="color:whitesmoke;">Productos</a>
             </div>            
         </div>
 
         <div class="navbar-nav">
             <div class="nav-item">
-                <a [routerLink]="['products/admin']" class="nav-link" style="color:whitesmoke;">Admin. productos</a>
+                <a [routerLink]="['products/admin']" class="nav-link menu-button" style="color:whitesmoke;">Admin. productos</a>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                 <mat-icon>search</mat-icon>
             </button>     
         
-            <button mat-icon-button>
+            <button mat-icon-button [routerLink]="['login']">
                 <mat-icon>person</mat-icon>
             </button> 
         </div>    

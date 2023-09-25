@@ -37,10 +37,14 @@
                                 </td>
                                 <th>{{product.id}}</th>
                                 <td>{{product.name}}</td>
-                                <td>Lorem ipsum dolor set amet</td>
+                                <td>{{product.description}}</td>
                                 <td>{{product.count}}</td>
                                 <td>{{product.unit_price}}</td>
-                                <td>No</td>
+                                <td>
+                                    <span *ngIf="product.issale">Si</span>
+
+                                    <span *ngIf="!product.issale">No</span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
