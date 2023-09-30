@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/services/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -20,6 +21,10 @@ export class IndexComponent implements OnInit {
 
   ObtenerProductos()
   {
-    this.products = this.productService.GetFive();
+    this.productService.GetFive().subscribe((slicedProducts) => {
+      this.products = slicedProducts;
+    });
+
+    // this.products = this.productService.GetFive();
   }
 }

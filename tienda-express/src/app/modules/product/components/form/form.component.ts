@@ -29,7 +29,16 @@ export class FormComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id'];
 
-    this.ObtenerProducto();
+      this.newproduct = this.id == 0;
+
+      if(this.newproduct)
+      {
+        this.product = new Product();
+        this.product.id = 0;
+      }
+      else{
+        this.ObtenerProducto();
+      }
    });
 
    this.sub.unsubscribe();
@@ -37,15 +46,9 @@ export class FormComponent implements OnInit, OnDestroy {
 
   ObtenerProducto()
   {
-    this.product = this.productService.Find(this.id);
-
-    this.newproduct = this.product.id == 0;
-
-    if(this.newproduct)
-    {
-      this.product = new Product();
-      this.product.id = 0;
-    }
+    this.productService.Find(this.id).subscribe((productFound) => {
+      this.product = productFound;      
+    });
   }
 
   ngOnDestroy(): void {

@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalModule } from './modules/global/global.module';
 import { ProductRoutingModule } from './modules/product/product-routing.module';
 import { AuthRoutingModule } from './modules/auth/auth-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthRoutingModule } from './modules/auth/auth-routing.module';
     RouteModule,
     BrowserAnimationsModule,
     GlobalModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

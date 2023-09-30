@@ -18,6 +18,15 @@
         "issale": false
     },
     {
+        "id" : 3,
+        "name" : "Pera",
+        "description": "lorem ipsum dolor set amet",
+        "count" : 200,
+        "unit_price": 500,
+        "img": "assets/images/products/Pera-3.jpg",
+        "issale": false
+    },
+    {
         "id" : 4,
         "name" : "Zanahoria",
         "description": "lorem ipsum dolor set amet",
@@ -33,15 +42,6 @@
         "count" : 150,
         "unit_price": 200,
         "img": "assets/images/products/Remolacha-5.jpg",
-        "issale": false
-    },
-    {
-        "id" : 3,
-        "name" : "Pera",
-        "description": "lorem ipsum dolor set amet",
-        "count" : 200,
-        "unit_price": 500,
-        "img": "assets/images/products/Pera-3.jpg",
         "issale": false
     },
     {

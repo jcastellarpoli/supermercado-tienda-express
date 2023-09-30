@@ -20,7 +20,11 @@ export class IndexComponent implements OnInit {
 
   ObtenerProductos()
   {
-    this.products = this.productService.All();
+    this.productService.All().subscribe((productList) => {
+      this.products = productList;
+    });
+
+    // this.products = this.productService.All();
   }
 
 }

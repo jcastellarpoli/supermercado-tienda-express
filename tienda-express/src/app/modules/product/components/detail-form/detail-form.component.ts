@@ -21,7 +21,7 @@ export class DetailFormComponent implements OnInit, OnDestroy{
 
     this.LeerParametro();
 
-    this.productexists = this.product.id > 0;
+    
   }
 
   LeerParametro()
@@ -37,7 +37,12 @@ export class DetailFormComponent implements OnInit, OnDestroy{
 
   ObtenerProducto()
   {
-    this.product = this.productService.Find(this.id);
+    this.productService.Find(this.id).subscribe((productFound) => {
+      this.product = productFound;
+      this.productexists = this.product.id > 0;
+    });
+
+    // this.product = this.productService.Find(this.id);
   }
 
   ngOnDestroy(): void {
