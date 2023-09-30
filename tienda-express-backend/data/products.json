@@ -1,0 +1,65 @@
+[
+    {
+        "id" : 1,
+        "name" : "Manzana",
+        "description": "lorem ipsum dolor set amett",
+        "count" : 100,
+        "unit_price": 500,
+        "img": "assets/images/products/Manzana-1.jpg",
+        "issale": false
+    },
+    {
+        "id" : 2,
+        "name" : "Piña",
+        "description": "lorem ipsum dolor set amet",
+        "count" : 200,
+        "unit_price": 1000,
+        "img": "assets/images/products/Piña-2.jpg",
+        "issale": false
+    },
+    {
+        "id" : 3,
+        "name" : "Pera",
+        "description": "lorem ipsum dolor set amet",
+        "count" : 200,
+        "unit_price": 500,
+        "img": "assets/images/products/Pera-3.jpg",
+        "issale": false
+    },
+    {
+        "id" : 4,
+        "name" : "Zanahoria",
+        "description": "lorem ipsum dolor set amet",
+        "count" : 300,
+        "unit_price": 800,
+        "img": "assets/images/products/Zanahoria-4.jpg",
+        "issale": false
+    },
+    {
+        "id" : 5,
+        "name" : "Remolacha",
+        "description": "lorem ipsum dolor set amet",
+        "count" : 150,
+        "unit_price": 200,
+        "img": "assets/images/products/Remolacha-5.jpg",
+        "issale": false
+    },
+    {
+        "id" : 6,
+        "name" : "Mango",
+        "description": "lorem ipsum dolor set amet",
+        "count" : 300,
+        "unit_price": 700,
+        "img": "assets/images/products/Mango-6.jpg",
+        "issale": false
+    },
+    {
+        "id" : 7,
+        "name" : "Brocoli",
+        "description": "lorem ipsum dolor set amet",
+        "count" : 500,
+        "unit_price": 400,
+        "img": "assets/images/products/Brocoli-7.jpg",
+        "issale": true
+    }
+]
