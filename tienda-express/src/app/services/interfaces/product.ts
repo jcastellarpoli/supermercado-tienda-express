@@ -7,7 +7,8 @@ export class Product
     unit_price!: number
     img!: string
     issale!: boolean
-
+    imgData!: Blob
+    
     constructor()
     {
         this.id = 0;

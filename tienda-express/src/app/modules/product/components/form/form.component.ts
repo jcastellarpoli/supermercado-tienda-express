@@ -15,6 +15,9 @@ export class FormComponent implements OnInit, OnDestroy {
   newproduct!: boolean;
   private sub: any;
   imgSubmitted: string = "";
+  formData: any;
+  imagePreviewUrl!: string | ArrayBuffer | null;
+  selectedFile!: File;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {}
 
@@ -46,8 +49,15 @@ export class FormComponent implements OnInit, OnDestroy {
 
   ObtenerProducto()
   {
-    this.productService.Find(this.id).subscribe((productFound) => {
-      this.product = productFound;      
+    this.productService.FindNew(this.id).subscribe((productFound) => {
+      this.product = productFound;   
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewUrl = reader.result;
+      };
+      reader.readAsDataURL(this.product.imgData);
+      
     });
   }
 
@@ -56,11 +66,20 @@ export class FormComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  OnSubmit()
+  OnSubmit(formData: FormData)
   {
+    this.formData.append('name', this.product.name);
+    this.formData.append('description', this.product.description);
+    this.formData.append('unit_price', this.product.unit_price.toString());
+    this.formData.append('issale', this.product.issale.toString());
+    this.formData.append('image', this.selectedFile);
+
     if(this.newproduct)
     {
-      console.log("creado");
+      this.productService.Create(this.formData).subscribe(() => {  
+        //producto creado correctamente
+      });
+
       //crear producto y redireccionar a la grilla
     }
     else
@@ -68,5 +87,15 @@ export class FormComponent implements OnInit, OnDestroy {
       console.log("modificado");
       //editar producto y redireccionar a la grilla
     }
+  }
+
+  handleFileInput(event: any) {
+    this.selectedFile = event.target.files[0];
+
+    const reader = new FileReader();
+  reader.onload = () => {
+    this.imagePreviewUrl = reader.result;
+  };
+  reader.readAsDataURL(this.selectedFile);
   }
 }

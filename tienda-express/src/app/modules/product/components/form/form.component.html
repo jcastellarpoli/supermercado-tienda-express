@@ -25,17 +25,21 @@
         <div class="card-body">
 
             <div class="container-fluid">
-                <form #productForm="ngForm">
+                <form #productForm="ngForm" (ngSubmit)="OnSubmit(formData)" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-sm-8 col-md-6 col-lg-6">
-                            <img src="{{product.img}}" style="border:1px solid lightgray;" class="w-100" alt="Imagen producto">
+                            <!-- <img src="{{product.img}}" style="border:1px solid lightgray;" class="w-100" alt="Imagen producto"> -->
 
-                            <input type="file" class="form-control mt-3" name="img" />
+                            <div *ngIf="imagePreviewUrl">
+                                <img [src]="imagePreviewUrl" style="border:1px solid lightgray;" alt="Imagen producto">
+                              </div>
+
+                            <input type="file" class="form-control mt-3" name="img" accept="image/*" required (change)="handleFileInput($event)"/>
                         </div>
                         <div class="col-sm-4 col-md-6 col-lg-6 ms-auto mt-3">
                             <div class="form-group">
                                 <label class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" name="name" [(ngModel)]="product.name"/>
+                                <input type="text" class="form-control" name="name" required [(ngModel)]="product.name"/>
                             </div>
                             <div class="form-group mt-2">
                                 <label class="form-label">Descripción:</label>
@@ -61,13 +65,13 @@
                             <div class="form-group mt-5">
 
                                 <ng-template [ngIf]="newproduct" [ngIfElse]="productExists2">
-                                    <button type="button" class="btn btn-success me-2" style="width:150px;">
+                                    <button type="submit" class="btn btn-success me-2" style="width:150px;">
                                         Crear
                                     </button>
                                 </ng-template>
                             
                                 <ng-template #productExists2>
-                                    <button type="button" class="btn btn-warning" style="width:150px;">
+                                    <button type="submit" class="btn btn-warning" style="width:150px;">
                                         Editar
                                     </button>
                                 </ng-template>

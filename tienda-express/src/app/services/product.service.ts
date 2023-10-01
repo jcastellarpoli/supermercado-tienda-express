@@ -40,26 +40,6 @@ export class ProductService
         );
       }
 
-    // GetFive()
-    // {
-    //     let products: Product[] = [];
-
-    //     this.http.get<Product[]>(this.getHttpRequestLink("")).subscribe({
-    //         next: (response) => {
-
-    //             products = response;
-    //             console.log(products);
-    //         },
-    //         error: (error) => {
-    //           throw error;
-    //         }
-    //       });
-
-    //     //console.log(this.products);
-
-    //     return products.slice(0, 4);
-    // }
-
     All()
     {
         let products: Product[] = [];
@@ -77,22 +57,6 @@ export class ProductService
 
     }
 
-    // Find(id: number)
-    // {
-    //     let product: Product;
-
-    //     product = new Product();
-
-    //     this.products.forEach(item => {
-            
-    //         if(item.id == id)
-    //         {
-    //             product = item;
-    //         }
-    //     });
-
-    //     return product;
-    // }
 
     Find(id: number)
     {
@@ -100,16 +64,6 @@ export class ProductService
 
         product = new Product;
         product.id = 0;
-
-        // this.http.get<Product>(this.getHttpRequestLink("findbyid/" + id)).subscribe({
-        //     next: (response) => {
-
-        //         product = response;
-        //     },
-        //     error: (error) => {
-        //         throw error;
-        //     }
-        //   });
 
           return this.http.get<Product>(this.getHttpRequestLink("findbyid/" + id)).pipe(
             map((response) => {
@@ -122,4 +76,35 @@ export class ProductService
                 throw error;
             }));
     }
+
+    FindNew(id: number)
+    {
+        let product: Product;
+
+        product = new Product;
+        product.id = 0;
+
+          return this.http.get<Product>(this.getHttpRequestLink("findbyidnew/" + id)).pipe(
+            map((response) => {
+                
+                product = response;
+    
+                return product;
+            }),
+            catchError((error) => {
+                throw error;
+            }));
+    }
+
+
+    Create(formData: FormData) {
+
+        return this.http.post(this.getHttpRequestLink("new"), formData).pipe(
+            map(() => {
+                
+            }),
+            catchError((error) => {
+                throw error;
+            }));
+      }
 }
