@@ -17,7 +17,7 @@ routes.get('/products', (req, res) => {
 });
 
 
-app.post('/products/new2', upload.single('image'), (req, res) => {
+routes.post('/products/new2', upload.single('image'), (req, res) => {
   // Handle the uploaded file
   const file = req.file;
   const fileExtension = path.extname(file.originalname);
@@ -124,7 +124,7 @@ routes.get('/products/findbyid/:id', (req, res) => {
     res.json(productoEncontrado);
 });
 
-app.get('/products/findbyidnew/:id', (req, res) => {
+routes.get('/products/findbyidnew/:id', (req, res) => {
 
     const {id} = req.params;
     let productoEncontrado = null;

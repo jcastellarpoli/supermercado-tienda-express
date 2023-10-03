@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.use(require('./rutas/products'));
+app.use(require('./rutas/users'));
 
 //inicia la aplicacion
 app.listen(app.get('port'), () => {

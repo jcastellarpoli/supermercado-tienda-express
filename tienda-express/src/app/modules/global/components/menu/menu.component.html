@@ -1,33 +1,46 @@
 <nav class="navbar navbar-dark mb-5" style="color:#fff;background-color: #66D96E;">
     <div class="container-fluid">
-            <a [routerLink]="['/']" class="navbar-brand menu-button"><i>Tienda Express</i></a>
+        <a [routerLink]="['/']" class="navbar-brand menu-button"><i>Tienda Express</i></a>
 
         <div class="navbar-nav me-3">
             <div class="nav-item">
-                <a [routerLink]="['products/index']" class="nav-link menu-button" style="color:whitesmoke;">Productos</a>
-            </div>            
+                <a [routerLink]="['products/index']" class="nav-link menu-button"
+                    style="color:whitesmoke;">Productos</a>
+            </div>
         </div>
 
-        <div class="navbar-nav">
+        <div class="navbar-nav" *ngIf="authservice.isLoggedIn | async">
             <div class="nav-item">
-                <a [routerLink]="['products/admin']" class="nav-link menu-button" style="color:whitesmoke;">Admin. productos</a>
+                <a [routerLink]="['products/admin']" class="nav-link menu-button" style="color:whitesmoke;">Admin.
+                    productos</a>
             </div>
         </div>
 
         <div class="nav-item ms-auto">
             <button mat-icon-button>
                 <mat-icon>search</mat-icon>
-            </button>     
-        
+            </button>
+
             <button mat-icon-button [routerLink]="['login']">
                 <mat-icon>person</mat-icon>
-            </button> 
-        </div>    
-         
-        <div>Admin</div> 
-           
+            </button>
+
+            <button mat-icon-button (click)="logout()" *ngIf="authservice.isLoggedIn | async">
+                <mat-icon>logout</mat-icon>
+            </button>
+
+        </div>
+
+        <ng-template [ngIf]="authservice.isLoggedIn | async" [ngIfElse]="usernotloggedin">
+            <div>{{authservice.username}}</div>
+        </ng-template>
+
+        <ng-template #usernotloggedin>
+            <div>Usuario</div>
+        </ng-template>
+
     </div>
-        
+
 </nav>
 
 <router-outlet></router-outlet>
