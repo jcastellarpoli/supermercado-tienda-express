@@ -21,27 +21,29 @@ export class AuthService{
   username!: string;
   email!: string;
 
+
   constructor(private http: HttpClient) 
   {    
-
+    this.getAuthenticationState();
   }
 
   getAuthenticationState()
   {
     let token: string | null;
 
-    token = localStorage.getItem('token');
-
-    console.log(token);
+    token = sessionStorage.getItem('token');
 
     if(token != null)
     {
-      this._isLoggedIn.next(true);
-
       this.tokenInfo = this.getDecodedAccessToken(token);
 
       this.username = this.tokenInfo.foundUser.username;
       this.email = this.tokenInfo.foundUser.email;
+    }
+    else
+    {
+      console.log(false);
+      this._isLoggedIn.next(false);
     }
   }
 
@@ -56,13 +58,23 @@ export class AuthService{
 
     return this.http.post(this.getHttpRequestLink("login"), user).pipe(
         tap((response: any) => {
-            localStorage.setItem('token', response.token);
-            this._isLoggedIn.next(true);
+          
+            sessionStorage.setItem('token', response.token);
 
-            this.tokenInfo = this.getDecodedAccessToken(response.token);
+            if(response.token != null)
+            {
+              this._isLoggedIn.next(true);
 
-            this.username = this.tokenInfo.foundUser.username;
-            this.email = this.tokenInfo.foundUser.email;
+              this.tokenInfo = this.getDecodedAccessToken(response.token);
+
+              this.username = this.tokenInfo.foundUser.username;
+              this.email = this.tokenInfo.foundUser.email;
+            }
+            else
+            {
+              this._isLoggedIn.next(false);
+            }
+            
             console.log(this.tokenInfo)
         }),
         catchError((error) => {
@@ -72,8 +84,11 @@ export class AuthService{
 
   Logout()
   {
-    localStorage.setItem('token', '');
+    sessionStorage.removeItem('token');
     this.userData = null;
+    this.username = "";
+    this.email = "";
+    this.tokenInfo = null;
     this._isLoggedIn.next(false);
   }
 

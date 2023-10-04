@@ -12,11 +12,8 @@ import { Login } from 'src/app/services/classes/login';
 export class LoginComponent {
 
   public login!: Login;
-
-  form = new FormGroup({
-    email: new FormControl(null, Validators.required),
-    password: new FormControl(null, Validators.required),
-  });
+  
+  message: string = "";
 
   constructor(public authService: AuthService, private router: Router)
   {
@@ -25,8 +22,16 @@ export class LoginComponent {
 
   onsubmit()
   {
+    this.message = "";
+
     this.authService.Login(this.login.email, this.login.password).subscribe((response) => {
       
+      if(!response)
+      {
+        this.message = "Email/Usuario invalidos";
+        return;
+      }
+
       this.router.navigate(['']);
     });
 
