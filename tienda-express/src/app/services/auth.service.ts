@@ -33,12 +33,14 @@ export class AuthService{
 
     token = sessionStorage.getItem('token');
 
-    if(token != null)
+    if(token != null && token != '')
     {
       this.tokenInfo = this.getDecodedAccessToken(token);
 
       this.username = this.tokenInfo.foundUser.username;
       this.email = this.tokenInfo.foundUser.email;
+      this._isLoggedIn.next(true);
+
     }
     else
     {
@@ -84,7 +86,7 @@ export class AuthService{
 
   Logout()
   {
-    sessionStorage.removeItem('token');
+    sessionStorage.setItem('token', '');
     this.userData = null;
     this.username = "";
     this.email = "";

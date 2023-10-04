@@ -38,7 +38,7 @@ export class ProductService
             throw error;
           })
         );
-      }
+    }
 
     All()
     {
@@ -99,12 +99,41 @@ export class ProductService
 
     Create(formData: FormData) {
 
-        return this.http.post(this.getHttpRequestLink("new"), formData).pipe(
+        return this.http.post(this.getHttpRequestLink("new2"), formData, {responseType: 'text'}).pipe(
+            map(() => {
+                console.log("producto creado");
+            }),
+            catchError((error) => {
+                console.log(error.message);
+
+                throw error;
+            }));
+    }
+
+    Edit(formData: FormData) {
+
+        return this.http.put(this.getHttpRequestLink("editnew"), formData, {responseType: 'text'}).pipe(
+            map(() => {
+                console.log("producto creado");
+            }),
+            catchError((error) => {
+                throw error;
+            }));
+    }
+
+    Delete(id: number)
+    {
+        let product: Product;
+
+        product = new Product;
+        product.id = 0;
+
+        return this.http.delete(this.getHttpRequestLink("delete/" + id), {responseType: 'text'}).pipe(
             map(() => {
                 
             }),
             catchError((error) => {
                 throw error;
             }));
-      }
+    }
 }

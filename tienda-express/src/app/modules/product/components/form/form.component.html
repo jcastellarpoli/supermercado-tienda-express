@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group mt-2">
                                 <label class="form-label">Descripción:</label>
-                                <textarea class="form-control" name="description" rows="3" [(ngModel)]="product.description"></textarea>
+                                <textarea class="form-control" name="description" rows="3" required [(ngModel)]="product.description"></textarea>
                             </div>
                             <div class="form-group">
                                 <hr />
@@ -51,11 +51,11 @@
                             <div class="row">
                                 <div class="col-lg-2">
                                     <label class="form-label">Precio:</label>
-                                    <input type="number" class="form-control" name="price" [(ngModel)]="product.unit_price"/>
+                                    <input type="number" class="form-control" name="price" required [(ngModel)]="product.unit_price"/>
                                 </div>
                                 <div class="col-lg-4">
                                     <label class="form-label">Unidades disponibles:</label>
-                                    <input type="number" class="form-control" name="count" [(ngModel)]="product.count"/>
+                                    <input type="number" class="form-control" name="count" required [(ngModel)]="product.count"/>
                                 </div>
                                 <div class="col-lg-4">
                                     <label class="form-label">Se encuentra en promoción:</label>

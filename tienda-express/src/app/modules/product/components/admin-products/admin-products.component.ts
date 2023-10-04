@@ -38,10 +38,16 @@ export class AdminProductsComponent implements OnInit{
 
   eliminarProducto(id: number)
   {
-    const indexOfObject = this.products.findIndex(object => {
-      return object.id === id;
-    });
+    this.productService.Delete(id).subscribe(() => {
+      this.ObtenerProductos();
+    })
+
     
-    this.products.splice(indexOfObject, 1);
+
+    // const indexOfObject = this.products.findIndex(object => {
+    //   return object.id === id;
+    // });
+    
+    // this.products.splice(indexOfObject, 1);
   }
 }
