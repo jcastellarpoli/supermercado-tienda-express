@@ -65,23 +65,12 @@ export class FormComponent implements OnInit, OnDestroy {
       this.http.get(imageUrl, { responseType: 'blob' }).subscribe((blob) => {
         const reader = new FileReader();
         reader.onloadend = () => {
-          // Create a SafeUrl from the result using DomSanitizer
+          
           this.imagePreviewUrl = this.sanitizer.bypassSecurityTrustUrl(reader.result as string);
         };
   
         reader.readAsDataURL(blob);
       });
-
-      // const reader = new FileReader();
-      // reader.onloadend = () => {
-      //   // this.imagePreviewUrl = reader.result;
-      //   this.imagePreviewUrl = this.sanitizer.bypassSecurityTrustUrl(reader.result as string);
-      //   console.log(this.imagePreviewUrl);
-      // };      
-
-      // console.log(reader);
-
-      // reader.readAsDataURL(blob);
       
     });
   }

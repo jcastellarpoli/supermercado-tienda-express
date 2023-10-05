@@ -96,6 +96,18 @@ export class ProductService
             }));
     }
 
+    GetImg(id: number)
+    {
+          return this.http.get<Product>(this.getHttpRequestLink("getproductimg/" + id)).pipe(
+            map((response) => {   
+                
+                return response.imgData;
+            }),
+            catchError((error) => {
+                throw error;
+            }));
+    }
+
 
     Create(formData: FormData) {
 

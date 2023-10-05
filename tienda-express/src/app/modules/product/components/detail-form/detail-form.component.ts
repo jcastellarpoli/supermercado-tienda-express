@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/services/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -14,13 +16,13 @@ export class DetailFormComponent implements OnInit, OnDestroy{
   product!: Product;
   productexists: boolean = false;
   private sub: any;
+  imagePreviewUrl!: string | ArrayBuffer | null | SafeUrl;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute, private productService: ProductService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {  
 
     this.LeerParametro();
-
     
   }
 
@@ -37,12 +39,31 @@ export class DetailFormComponent implements OnInit, OnDestroy{
 
   ObtenerProducto()
   {
-    this.productService.Find(this.id).subscribe((productFound) => {
-      this.product = productFound;
-      this.productexists = this.product.id > 0;
-    });
+    // this.productService.Find(this.id).subscribe((productFound) => {
+    //   this.product = productFound;
+    //   this.productexists = this.product.id > 0;
+    // });
 
-    // this.product = this.productService.Find(this.id);
+    this.productService.FindNew(this.id).subscribe((productFound) => {
+
+      this.product = productFound;   
+      this.productexists = this.product.id > 0;
+
+      console.log(this.product);
+
+      const imageUrl = `data:image/jpeg;base64,${this.product.imgData}`;
+
+      this.http.get(imageUrl, { responseType: 'blob' }).subscribe((blob) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          // Create a SafeUrl from the result using DomSanitizer
+          this.imagePreviewUrl = this.sanitizer.bypassSecurityTrustUrl(reader.result as string);
+        };
+  
+        reader.readAsDataURL(blob);
+      });
+      
+    }); 
   }
 
   ngOnDestroy(): void {

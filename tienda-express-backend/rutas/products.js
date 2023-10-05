@@ -54,7 +54,7 @@ routes.post('/products/new2', upload.single('image'), (req, res) => {
 
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 
-  fs.writeFile('data/products.json', JSON.stringify(productos, null, "\t"), (err) => {
+  fs.writeFile('data/products.json', JSON.stringify(productos, null, "\t", (key) => { if (key != "imgData") return val; }), (err) => {
     if (err) {
       console.error(err);
       res.status(500).send('Error registrando');
@@ -91,7 +91,7 @@ routes.delete('/products/delete/:id', (req, res) => {
     });
 
 
-    fs.writeFile('data/products.json', JSON.stringify(productos, null, "\t"), (err) => {
+    fs.writeFile('data/products.json', JSON.stringify(productos, null, "\t", (key) => { if (key != "imgData") return val; }), (err) => {
       if (err) {
         console.error(err);
         res.status(500).send('Error registrando');
@@ -117,7 +117,7 @@ routes.put('/products/edit/', (req, res) => {
         }
     });
 
-    writeJson(JSON.stringify(productos));
+    writeJson(JSON.stringify(productos, (key) => { if (key != "imgData") return val; }));
 
     res.json(productos);
 });
@@ -157,6 +157,8 @@ routes.put('/products/editnew', upload.single('image'), (req, res) => {
 
   _.each(productos, (producto, i) => {
 
+      producto.imgData = null;
+
       if(producto.id == productoModificado.id)
       {
           producto.name = productoModificado.name;
@@ -179,7 +181,7 @@ routes.put('/products/editnew', upload.single('image'), (req, res) => {
 
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
 
-  fs.writeFile('data/products.json', JSON.stringify(productos, null, "\t"), (err) => {
+  fs.writeFile('data/products.json', JSON.stringify(productos, null, "\t", (key) => { if (key != "imgData") return val; }), (err) => {
     if (err) {
       console.error(err);
       res.status(500).send('Error registrando');
@@ -237,6 +239,38 @@ routes.get('/products/findbyidnew/:id', (req, res) => {
   
         res.setHeader('Content-Type', 'application/json');
         res.send(productoEncontrado);
+      }
+    });
+  });
+
+  routes.get('/products/getproductimg/:id', (req, res) => {
+
+    const {id} = req.params;
+    let productoEncontrado = null;
+
+    _.each(productos, (producto, i) => {
+        if(producto.id == id)
+        {
+            productoEncontrado = producto;
+            productoEncontrado.imgData = null;
+        }
+    });
+
+    if (productoEncontrado == null) {
+        return res.status(500).send('Producto no encontrado.');
+    }
+
+    const imageName = productoEncontrado.img;
+    const imagePath = 'images/products/' + imageName;
+  
+    fs.readFile(imagePath, (err, data) => {
+      if (err) {
+        console.error('Error reading file:', err);
+        res.status(500).send('Error retrieving image');
+      } else {
+  
+        res.setHeader('Content-Type', 'application/json');
+        res.send({imgData: data.toString('base64')});
       }
     });
   });

@@ -31,7 +31,7 @@
                             <!-- <img src="{{product.img}}" style="border:1px solid lightgray;" class="w-100" alt="Imagen producto"> -->
 
                             <div *ngIf="imagePreviewUrl">
-                                <img [src]="imagePreviewUrl" style="border:1px solid lightgray;" alt="Imagen producto">
+                                <img [src]="imagePreviewUrl" style="border:1px solid lightgray;" class="w-100" alt="Imagen producto"/>
                               </div>
 
                             <input type="file" class="form-control mt-3" name="img" accept="image/*" required (change)="handleFileInput($event)"/>

@@ -5,7 +5,7 @@
         "description": "lorem ipsum dolor set amett",
         "count" : 100,
         "unit_price": 500,
-        "img": "assets/images/products/Manzana-1.jpg",
+        "img": "Manzana-1.jpg",
         "issale": false
     },
     {
@@ -14,7 +14,7 @@
         "description": "lorem ipsum dolor set amet",
         "count" : 200,
         "unit_price": 1000,
-        "img": "assets/images/products/Piña-2.jpg",
+        "img": "Piña-2.jpg",
         "issale": false
     },
     {
@@ -23,7 +23,7 @@
         "description": "lorem ipsum dolor set amet",
         "count" : 200,
         "unit_price": 500,
-        "img": "assets/images/products/Pera-3.jpg",
+        "img": "Pera-3.jpg",
         "issale": false
     },
     {
@@ -32,7 +32,7 @@
         "description": "lorem ipsum dolor set amet",
         "count" : 300,
         "unit_price": 800,
-        "img": "assets/images/products/Zanahoria-4.jpg",
+        "img": "Zanahoria-4.jpg",
         "issale": false
     },
     {
@@ -41,7 +41,7 @@
         "description": "lorem ipsum dolor set amet",
         "count" : 150,
         "unit_price": 200,
-        "img": "assets/images/products/Remolacha-5.jpg",
+        "img": "Remolacha-5.jpg",
         "issale": false
     },
     {
@@ -50,7 +50,7 @@
         "description": "lorem ipsum dolor set amet",
         "count" : 300,
         "unit_price": 700,
-        "img": "assets/images/products/Mango-6.jpg",
+        "img": "Mango-6.jpg",
         "issale": false
     },
     {
@@ -59,7 +59,7 @@
         "description": "lorem ipsum dolor set amet",
         "count" : 500,
         "unit_price": 400,
-        "img": "assets/images/products/Brocoli-7.jpg",
+        "img": "Brocoli-7.jpg",
         "issale": true
     }
 ]
