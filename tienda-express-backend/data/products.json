@@ -68,5 +68,15 @@
 		"img": "Brocoli-7.jpg",
 		"issale": true,
 		"imgData": null
+	},
+	{
+		"name": "Lechuga",
+		"description": "Lechuga fresca",
+		"unit_price": 1800,
+		"issale": true,
+		"count": 1000,
+		"id": 8,
+		"img": "Lechuga-8.png",
+		"imgData": null
 	}
 ]
